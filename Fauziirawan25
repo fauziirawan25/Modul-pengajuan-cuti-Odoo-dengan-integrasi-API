@@ -3,3 +3,37 @@ git remote add origin https://github.com/username/odoo-leave-request-module.git
 git add .
 git commit -m "Initial commit"
 git push -u origin main
+
+
+
+API Endpoint: Memperbarui Status Permintaan Cuti
+
+Contoh Permintaan:
+
+POST /api/leave_request/update_status HTTP/1.1
+Host: odoo-instance.com
+Content-Type: application/json
+
+{
+  "request_id": 123,
+  "new_status": "Approved"
+}
+
+
+Contoh Respons Sukses:
+{
+  "status": "success",
+  "message": "Status permintaan berhasil diperbarui",
+  "data": {
+    "request_id": 123,
+    "new_status": "Approved"
+  }
+}
+
+
+Contoh Respons Gagal:
+
+{
+  "status": "error",
+  "message": "Permintaan tidak ditemukan atau status tidak valid"
+}
