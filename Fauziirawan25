@@ -6,7 +6,7 @@ git push -u origin main
 
 
 
-API Endpoint: Memperbarui Status Permintaan Cuti
+1. API Endpoint: Memperbarui Status Permintaan Cuti
 
 Contoh Permintaan:
 
@@ -37,3 +37,65 @@ Contoh Respons Gagal:
   "status": "error",
   "message": "Permintaan tidak ditemukan atau status tidak valid"
 }
+
+
+
+2. Mendapatkan Detail Permintaan Berdasarkan ID
+
+Contoh Permintaan:
+
+GET /api/leave_request/123 HTTP/1.1
+Host: odoo-instance.com
+
+Contoh Respons Sukses:
+
+{
+  "status": "success",
+  "data": {
+    "request_id": 123,
+    "name": "John Doe",
+    "description": "Annual leave request",
+    "request_date": "2024-11-09",
+    "status": "Pending"
+  }
+}
+
+Contoh Respons Gagal:
+
+{
+  "status": "error",
+  "message": "Permintaan tidak ditemukan"
+}
+
+
+3. Mendapatkan Semua Permintaan Cuti
+Contoh Permintaan:
+
+GET /api/leave_request/all HTTP/1.1
+Host: odoo-instance.com
+
+Contoh Respons Sukses:
+
+{
+  "status": "success",
+  "data": [
+    {
+      "request_id": 123,
+      "name": "John Doe",
+      "description": "Annual leave request",
+      "request_date": "2024-11-09",
+      "status": "Pending"
+    },
+    {
+      "request_id": 124,
+      "name": "Jane Smith",
+      "description": "Sick leave",
+      "request_date": "2024-11-08",
+      "status": "Approved"
+    }
+  ]
+}
+
+
+
+
